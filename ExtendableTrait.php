@@ -45,7 +45,7 @@ trait ExtendableTrait
     public function extendableConstruct()
     {
         // Apply init callbacks
-        $classes = array_merge([static::class], class_parents($this));
+        $classes = array_merge([static::class], class_parents(static::class));
         foreach ($classes as $class) {
             if (isset(Container::$classCallbacks[$class]) && is_array(Container::$classCallbacks[$class])) {
                 foreach (Container::$classCallbacks[$class] as $callback) {
