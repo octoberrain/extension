@@ -435,7 +435,7 @@ trait ExtendableTrait
             }
         }
 
-        $parent = get_parent_class();
+        $parent = get_parent_class($this);
         if ($parent !== false && method_exists($parent, '__get')) {
             return parent::__get($name);
         }
@@ -504,7 +504,7 @@ trait ExtendableTrait
             return call_user_func_array($callable, $params);
         }
 
-        $parent = get_parent_class();
+        $parent = get_parent_class($this);
         if ($parent !== false && method_exists($parent, '__call')) {
             return parent::__call($name, $params);
         }
